@@ -32,6 +32,14 @@ sending an email, leave a comment at
 Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
+
+=== 3.8.0 ===
+
+=== 3.7.0 ===
+20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line
+    lengths being reported by codechecker.
+
+
 === 3.6.0 ===
 20200506 Started work on new Skype v3.6.0.
 20200506 Tracker, Skype_392, Ran codechecker and fixed variables with underscores in them.
