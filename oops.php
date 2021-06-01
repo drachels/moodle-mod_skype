@@ -101,7 +101,7 @@ echo '<div><p><strong>ELA-Skype is free, easy and quick to download and install.
 echo '<p>It works with Windows, Mac OS X, Linux and Pocket PC, and contains absolutely 
 no spyware, adware, malware or anything like that';
 
-//echo '<div><p>';
+// echo '<div><p>';
 echo '<form name="download-ff" id="download-ff" method="get" action="http://www.skype.com/go/getskype" target=_blank>';
 echo '<input type="submit" class="btn btn-primary" name="download" value="Download Skype" />';
 
@@ -110,6 +110,6 @@ echo '</div>';
 
 
 
-//echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
-//echo $this->output->box_end();
-?>
+// echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
+// echo $this->output->box_end();
+
