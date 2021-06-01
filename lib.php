@@ -29,8 +29,8 @@
  * @copyright 2020 onwards AL Rachels (drachels@drachels.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
+use \mod_skype\local\results;
 
 /**
  * Given an object containing all the necessary data,
@@ -91,7 +91,7 @@ function skype_update_instance($skype) {
     $skype->id = $skype->instance;
 
     // You may have to add extra stuff in here.
-    skype_update_calendar($skype, $cmid);
+    results::skype_update_calendar($skype, $cmid);
 
     return $DB->update_record('skype', $skype);
 }
