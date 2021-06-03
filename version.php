@@ -33,5 +33,5 @@ $plugin->version   = 2021053101;  // The current module version (Date: YYYYMMDDX
 $plugin->requires  = 2017111300;  // Requires Moodle 3.4
 $plugin->cron      = 0;           // Period for cron to check this module (secs).
 $plugin->component = 'mod_skype';
-$plugin->maturity  = MATURITY_STABLE;
+$plugin->maturity  = MATURITY_BETA;
 $plugin->release   = '3.8.0 (Build: 2021053101)';
