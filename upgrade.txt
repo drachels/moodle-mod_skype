@@ -34,10 +34,16 @@ Moodle Versions
 20200506 I assumed maintenance responsibility for this plugin.
 
 === 3.8.0 ===
+20210601 Skype_327 - Need to remove escape characters in script in locallib.php.
+     20210601 As of this date, locallib.php has been discarded and the functions
+     moved to /skype/classes/local/results.php. Changes were made as needed.
+20210602 Skype_727 - Multiple places and files need change to (__DIR__) in require_once.
+    Made changes in multiple files. See the ticket for details. 
 
 === 3.7.0 ===
 20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line
     lengths being reported by codechecker.
+20210430 Skype_323 - missing, With Selected (through check boxes): below user list 
 
 
 === 3.6.0 ===

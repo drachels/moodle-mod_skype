@@ -27,16 +27,16 @@
 
 require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
-require_once(__DIR__ . '/locallib.php');
+//require_once(__DIR__ . '/locallib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID.
 
 if ($id) {
     $cm         = get_coursemodule_from_id('skype', $id, 0, false, MUST_EXIST);
     $course     = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $skype  = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
+    $skype      = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
 } else if ($n) {
-    $skype  = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
+    $skype      = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
     $course     = $DB->get_record('course', array('id' => $skype->course), '*', MUST_EXIST);
     $cm         = get_coursemodule_from_instance('skype', $skype->id, $course->id, false, MUST_EXIST);
 } else {
@@ -49,7 +49,6 @@ require_login($course, true, $cm);
 //$PAGE->set_url('/mod/skype/oops.php', null);
 $PAGE->set_title('Using Skype Activity');
 //$PAGE->set_title($skype->name);
-
 
 $output = '';
 

@@ -29,8 +29,10 @@
 
 use \mod_skype\local\results;
 
-require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
-require_once(dirname(__FILE__).'/lib.php');
+//require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
+//require_once(dirname(__FILE__).'/lib.php');
+require_once(__DIR__ .'/../../config.php');
+require_once(__DIR__ .'/lib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID.
 $n  = optional_param('n', 0, PARAM_INT);  // Skype instance ID - it should be named as the first character of the module.

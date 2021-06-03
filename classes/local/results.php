@@ -29,6 +29,9 @@ define('SKYPE_EVENT_TYPE_OPEN', 'open');
 define('SKYPE_EVENT_TYPE_CLOSE', 'close');
 define('SKYPE_EVENT_TYPE_CHATTIME', 'chattime');
 
+use stdClass;
+use calendar_event;
+
 /**
  * Utility class for Skype results.
  *
@@ -59,9 +62,6 @@ class results  {
      public static function user_skype_id($params) {
          global $CFG, $DB, $USER;
 
-        //print_object('made it to the user_skype_id function in results.php');
-        
-        
         // 20210430 Moodle 3.11 no longer has a Skype field in the Optional section of the user profile.
         // Skip this unless it is Moodle 3.11 or greater.
         if ($CFG->branch > 310) {
@@ -79,41 +79,17 @@ class results  {
             $rec = $DB->get_record_sql($sql, $params);
 
         } else {
-            //print_object('in the else cp 1 user_skype_id($params) function printing the $paramsxx');
-            //print_object($params);
-            
             $sql = "SELECT u.id,
                            u.skype
                       FROM {user} u
                      WHERE u.id = ?";
-            //$rec1 = $DB->get_record_sql($sql, $params);
             $rec1 = $DB->get_record_sql($sql, $params);
-            //print_object('in the else cp 2 user_skype_id($params) function printing the $rec1');
-            //print_object($rec1);
 
-
-
-
-            //print_object('This is the current $rec1 and the Moodle branch is than < 311.');
-            //print_object($sql);
-            //print_object($params);
-            //print_object($rec1);
             // If Moodle 3.10 or lower use the old Skype field in the Optional section of the user profile.
-            
-            //$rec = array("id" => "", "data" => "");
-            //$rec = stdClass("id", "data");
-            //$rec = stdClass();
-
-            //print_object('Printing the array setup.');
-            //print_object($rec);
             $rec = (object) null;
-            
+
             $rec->id = $rec1->id;
             $rec->data = $rec1->skype;
-            //print_object('Printing the array after trying to add data.');
-           // print_object($rec);
-
-
         }
         return($rec);
      }
@@ -171,20 +147,11 @@ class results  {
 
         // Print_user_picture and other details.
         foreach ($skypeusers as $user) {
-            //print_object('print $user from the foreach loop.');
-            //print_object($user);
-
             // 20210531 Check to see if this user has a Skype ID in the new location
             $params = array($user->id, "skype");
-            
-            //print_object('fixing to check the $params array');
-            //print_object($params);
-            
+
             $rec = results::user_skype_id($params);
-            
-            //print_object('bak from filling $rec fixing to test for $user->skype and for branch < 311');
-            //print_object($rec);
-            
+
             if (((empty($user->skype)) && ($CFG->branch < 311)) || ((empty($rec->data)) && ($CFG->branch > 310))) {
                 $disabled = " disabled='disabled'";
                 $userskypeid = get_string("noskypeid", "skype");
@@ -242,7 +209,8 @@ class results  {
     public static function skype_update_calendar(stdClass $skype, $cmid) {
         global $DB, $CFG;
 
-        require_once($CFG->dirroot.'/calendar/lib.php');
+        //require_once($CFG->dirroot.'/calendar/lib.php');
+        require_once(__DIR__ .'/../../../../calendar/lib.php');
 
        // Skype start calendar events.
         $event = new stdClass();

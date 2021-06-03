@@ -44,8 +44,6 @@ use \mod_skype\local\results;
 function skype_add_instance($skype) {
     global $CFG, $DB;
 
-    require_once($CFG->dirroot.'/mod/skype/locallib.php');
-
     $skype->timecreated = time();
 
     // Fix for instance error 09/08/19.
@@ -55,7 +53,7 @@ function skype_add_instance($skype) {
     // Added next line for behat test 09/08/19.
     $cmid = $skype->coursemodule;
 
-    skype_update_calendar($skype, $cmid);
+    results::skype_update_calendar($skype, $cmid);
     return $DB->insert_record('skype', $skype);
 }
 
@@ -68,9 +66,10 @@ function skype_add_instance($skype) {
  * @return boolean Success/Fail
  */
 function skype_update_instance($skype) {
-    global $CFG, $DB;
+    global $DB;
 
-    require_once($CFG->dirroot.'/mod/skype/locallib.php');
+    $skype->timemodified = time();
+    $skype->id = $skype->instance;
 
     if (empty($skype->timeopen)) {
         $skype->timeopen = 0;
@@ -85,15 +84,14 @@ function skype_update_instance($skype) {
 
     $skype->id = $skype->instance;
 
-    $context = context_module::instance($cmid);
-
-    $skype->timemodified = time();
-    $skype->id = $skype->instance;
+    //$context = context_module::instance($cmid);
+    $DB->update_record('skype', $skype);
 
     // You may have to add extra stuff in here.
-    results::skype_update_calendar($skype, $cmid);
+    //results::skype_update_calendar($skype, $cmid);
+    results::skype_update_calendar($skype, $skype->coursemodule);
 
-    return $DB->update_record('skype', $skype);
+    return true;
 }
 
 /**
