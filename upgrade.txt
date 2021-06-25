@@ -38,7 +38,10 @@ Moodle Versions
      20210601 As of this date, locallib.php has been discarded and the functions
      moved to /skype/classes/local/results.php. Changes were made as needed.
 20210602 Skype_727 - Multiple places and files need change to (__DIR__) in require_once.
-    Made changes in multiple files. See the ticket for details. 
+    Made changes in multiple files. See the ticket for details.
+Skype_751 - install.php needs updating for Moodle 3.11. Began code development.
+Skype_752 - uninstall.php needs to be created for Moodle 3.11. Created file and
+    began code development.
 
 === 3.7.0 ===
 20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line

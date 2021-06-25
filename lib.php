@@ -84,11 +84,9 @@ function skype_update_instance($skype) {
 
     $skype->id = $skype->instance;
 
-    //$context = context_module::instance($cmid);
     $DB->update_record('skype', $skype);
 
     // You may have to add extra stuff in here.
-    //results::skype_update_calendar($skype, $cmid);
     results::skype_update_calendar($skype, $skype->coursemodule);
 
     return true;

@@ -29,8 +29,6 @@
 
 use \mod_skype\local\results;
 
-//require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
-//require_once(dirname(__FILE__).'/lib.php');
 require_once(__DIR__ .'/../../config.php');
 require_once(__DIR__ .'/lib.php');
 
@@ -100,11 +98,7 @@ if ((!(results::is_available($skype))) && (!(has_capability('mod/skype:manageent
     $params = array($USER->id, "skype");
     $rec = results::user_skype_id($params);
 
-    //print_object('in the view.php cp 1 printing the $rec');
-    //print_object($params);
-    //print_object($rec);
     // 20210531 switch from using $USER->skype to using $rec->data.
-    //if ((empty($rec->data)) && (empty($rec->skype))){
     if (empty($rec->data)) {
         $updateskypeidlink = '<a href="'.$CFG->wwwroot.'/user/edit.php?id='.$USER->id
             .'&course=1">'.get_string('updateskypeid', 'skype').'</a>';

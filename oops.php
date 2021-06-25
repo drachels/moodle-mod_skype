@@ -24,10 +24,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-
 require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
-//require_once(__DIR__ . '/locallib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID.
 
@@ -46,13 +44,13 @@ if ($id) {
 $context = context_module::instance($cm->id);
 require_login($course, true, $cm);
 
-//$PAGE->set_url('/mod/skype/oops.php', null);
+// $PAGE->set_url('/mod/skype/oops.php', null);
 $PAGE->set_title('Using Skype Activity');
-//$PAGE->set_title($skype->name);
+// $PAGE->set_title($skype->name);
 
 $output = '';
 
-//echo $this->output->box_start('generalbox boxwidthwide boxaligncenter');
+// echo $this->output->box_start('generalbox boxwidthwide boxaligncenter');
 echo '<style>
     html {
         padding-right: 0px; padding-left: 0px; padding-BOTTOM: 0px; margin: 0px; padding-TOP: 0px
@@ -107,8 +105,5 @@ echo '<input type="submit" class="btn btn-primary" name="download" value="Downlo
 echo '</form></p>';
 echo '</div>';
 
-
-
 // echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
 // echo $this->output->box_end();
-

@@ -59,14 +59,13 @@ class results  {
      * 20210531 Moved here.
      * @param int $skype
      */
-     public static function user_skype_id($params) {
-         global $CFG, $DB, $USER;
+    public static function user_skype_id($params) {
+        global $CFG, $DB, $USER;
 
         // 20210430 Moodle 3.11 no longer has a Skype field in the Optional section of the user profile.
         // Skip this unless it is Moodle 3.11 or greater.
         if ($CFG->branch > 310) {
             // The second param is the new name in the 311 profile, other fields!
-           // $params = array($USER->id, "skype");
             $sql = "SELECT uif.id,
                            uif.shortname,
                            uid.userid,
@@ -77,7 +76,6 @@ class results  {
                      WHERE uid.userid = ?
                        AND uif.shortname = ?";
             $rec = $DB->get_record_sql($sql, $params);
-
         } else {
             $sql = "SELECT u.id,
                            u.skype
@@ -92,7 +90,7 @@ class results  {
             $rec->data = $rec1->skype;
         }
         return($rec);
-     }
+    }
 
     /**
      * Print Skype user list.
@@ -100,12 +98,12 @@ class results  {
      * 20210531 Moved here.
      * @param int $skypeusers
      */
-     public static function printskypeuserslist($skypeusers) {
-         global $CFG, $USER, $OUTPUT;
+    public static function printskypeuserslist($skypeusers) {
+        global $CFG, $USER, $OUTPUT;
 
-         $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
-         <script>
-         function addthisname(skypeid){
+        $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
+        <script>
+        function addthisname(skypeid){
             var skypenamelist = '';
             for (i = 0; i < document.makeskypecall.userskypeids.length; i++){
                 if(document.makeskypecall.userskypeids[i].checked == true){
@@ -130,7 +128,6 @@ class results  {
         </script>
         <form id='makeskypecall' name='makeskypecall'>";
 
-
         // Add table column headings.
         $userlist .= '<table width="100%" cellspacing="5" cellpaddin="5" border="0">';
         $userlist .= "<tr><td>".get_string("select")."</td>";
@@ -143,14 +140,13 @@ class results  {
         if (!$skypeusers) {
             return '';
         }
-        $all_userskype = '';
 
         // Print_user_picture and other details.
         foreach ($skypeusers as $user) {
             // 20210531 Check to see if this user has a Skype ID in the new location
             $params = array($user->id, "skype");
 
-            $rec = results::user_skype_id($params);
+            $rec = self::user_skype_id($params);
 
             if (((empty($user->skype)) && ($CFG->branch < 311)) || ((empty($rec->data)) && ($CFG->branch > 310))) {
                 $disabled = " disabled='disabled'";
@@ -209,10 +205,9 @@ class results  {
     public static function skype_update_calendar(stdClass $skype, $cmid) {
         global $DB, $CFG;
 
-        //require_once($CFG->dirroot.'/calendar/lib.php');
         require_once(__DIR__ .'/../../../../calendar/lib.php');
 
-       // Skype start calendar events.
+        // Skype start calendar events.
         $event = new stdClass();
         $event->eventtype = SKYPE_EVENT_TYPE_OPEN;
         // The SKYPE_EVENT_TYPE_OPEN event should only be an action event if no close time is specified.
@@ -270,7 +265,7 @@ class results  {
                 $event->timeduration = 0;
 
                 $calendarevent = calendar_event::load($event->id);
-               $calendarevent->update($event, false);
+                $calendarevent->update($event, false);
             } else {
                 // Calendar event is no longer needed.
                 $calendarevent = calendar_event::load($event->id);
