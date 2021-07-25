@@ -85,9 +85,7 @@ function xmldb_skype_install() {
             $DB->insert_record('user_info_field', $params);
         }
     }
-
-
-//$PAGE->set_url(new moodle_url($CFG->dirroot));
+    return true;
 }
 
 /**
@@ -96,4 +94,5 @@ function xmldb_skype_install() {
  * @see upgrade_plugins_modules()
  */
 function xmldb_skype_install_recovery() {
+    return true;
 }
