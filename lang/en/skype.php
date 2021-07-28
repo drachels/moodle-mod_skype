@@ -32,6 +32,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['calendarend'] = '{$a} closes';
 $string['calendarchattime'] = '{$a} chat time';
 $string['calendarstart'] = '{$a} opens';
+$string['crontask'] = 'Background processing for Skype module';
 $string['incorrectcourseid'] = 'Course ID is incorrect';
 $string['modulename'] = 'Skype';
 $string['modulenameplural'] = 'Skypes';
