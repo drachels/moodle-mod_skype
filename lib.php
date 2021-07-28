@@ -165,18 +165,6 @@ function skype_print_recent_activity($course, $viewfullnames, $timestart) {
 }
 
 /**
- * Function to be run periodically according to the moodle cron
- * This function searches for things that need to be done, such
- * as sending out mail, toggling flags etc ...
- *
- * @return boolean
- * @todo Finish documenting this function
- **/
-function skype_cron () {
-    return true;
-}
-
-/**
  * Must return an array of users who are participants for a given instance
  * of skype. Must include every user involved in the instance,
  * independient of his role (student, teacher, admin...). The returned
