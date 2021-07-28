@@ -44,9 +44,9 @@ function xmldb_skype_uninstall() {
             $DB->delete_records('user_info_data', null, $params2);
             // Delete the Skype ID profile entry.
             $DB->delete_records('user_info_field', null, $params1);
-            // Also delete all the Skype activity instances.
-            $DB->delete_records('skype', null);
         }
     }
+    // Also delete all the Skype activity instances.
+    $DB->delete_records('skype', null);
     return true;
 }
