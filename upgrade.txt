@@ -32,6 +32,41 @@ sending an email, leave a comment at
 Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
+
+=== 3.8.0 ===
+20210503 Skype - Need code for GDPR compliance. Got an email with pull request info.
+    Looked at the code and merged the pull request. Adds code to use the following
+    string: $string['privacy:metadata'] = 'Skype module does not store private data.';
+20210526 Skype_725 - Text for view.php error in line 55 is hardcoded and needs to be
+    a string. Added new code for the error and the new string.
+20210601 Skype_709 - Need to remove escape characters in script in locallib.php.
+     20210601 As of this date, locallib.php has been discarded and the functions
+     moved to /skype/classes/local/results.php. Changes were made as needed.
+20210602 Skype_726 - Multiple places and files need change to (__DIR__) in require_once.
+    Made changes in multiple files. See the ticket for details.
+20210725 Skype_728 - install.php needs updating for Moodle 3.11. Began code development
+    and made changes as needed. Seems to be working correctly.
+20210727 Skype_729 - uninstall.php needs to be created for Moodle 3.11. Created file and
+    just checked code..
+20210726 Skype_727 - Convert from lib.php cron function to /classes/task/cron_task.php.
+    Created skype/db/tasks.php. Created skype/classes/task/cron_task.php. Created
+    new string, $string['crontask'] = 'Background processing for Skype module';
+20210726 Skype_705 - Optional field, Skype, missing in Moodle 3.11. Created code
+    changes as needed to use new tables and fields for Moodle 3.11 and higher. Initial
+    version of Moodle 3.11 has problems with some other fields created as part of
+    this change. Due to extreme health issues for my wife that lead to her death,
+    I tabled work on this until 20220313. I have ran tests and it seems to upgrade
+    in Moodle 3.11 and work as expected.
+
+
+
+
+=== 3.7.0 ===
+20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line
+    lengths being reported by codechecker.
+20210430 Skype_323 - missing, With Selected (through check boxes): below user list 
+
+
 === 3.6.0 ===
 20200506 Started work on new Skype v3.6.0.
 20200506 Tracker, Skype_392, Ran codechecker and fixed variables with underscores in them.
