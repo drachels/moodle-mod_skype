@@ -73,25 +73,4 @@ class mod_skype_renderer extends plugin_renderer_base {
     public function footer() {
         return $this->output->footer();
     }
-
-    /**
-     * Returns HTML for a skype inaccessible message
-     *
-     * @param string $message
-     * @return <type>
-     */
-    public function skype_inaccessible($message) {
-        global $CFG;
-        $output  = $this->output->box_start('generalbox boxaligncenter');
-        $output .= $this->output->box_start('center');
-        $output .= (get_string('notavailable', 'skype'));
-        $output .= $message;
-        $output .= $this->output->box('<a href="'.$CFG->wwwroot.'/course/view.php?id='
-                . $this->page->course->id .'">'
-                . get_string('returnto', 'skype', format_string($this->page->course->fullname, true))
-                .'</a>', 'skypebutton standardbutton');
-        $output .= $this->output->box_end();
-        $output .= $this->output->box_end();
-        return $output;
-    }
 }
