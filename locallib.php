@@ -47,9 +47,12 @@ function is_available($skype) {
  *
  * @param int $skypeusers
  */
+//function printskypeuserslist($skypeusers, $rec) {
 function printskypeuserslist($skypeusers) {
     global $CFG, $USER, $OUTPUT;
-
+print_object('In the printskypeuserslist function and if branch is >310, need to get other fields skype');
+print_object('In the printskypeuserslist function printing  $rec');
+print_object($rec);
     $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
     <script>
         function addthisname(skypeid){
@@ -89,32 +92,31 @@ function printskypeuserslist($skypeusers) {
     if (!$skypeusers) {
         return '';
     }
-    $all_userskype = '';
 
     // Print_user_picture and other details.
     foreach ($skypeusers as $user) {
-        if (empty($user->skype)) {
+        if (empty($user->address)) {
             $disabled = " disabled='disabled'";
             $userskypeid = get_string("noskypeid", "skype");
         } else {
             $disabled = " onClick='addthisname(this.value);' ";
-            $userskypeid = $user->skype;
+            $userskypeid = $user->address;
         }
-        $userlist .= "<tr><td><input type='checkbox' name='userskypeids' value='$user->skype' $disabled></td>";
+        $userlist .= "<tr><td><input type='checkbox' name='userskypeids' value='$user->address' $disabled></td>";
         $userlist .= "<td>".$OUTPUT->user_picture($user, array('courseid' => 1))."</td>";
         $userlist .= "<td>".fullname($user)."</td>";
         $userlist .= "<td>".$userskypeid."</td>";
-        if ($user->skype) {
+        if ($user->address) {
             $userlist .= "<td>
-            <a href=\"skype:$user->skype?call\"><img src='pix/createconference.gif' border='0' alt='Call' title='Call' onclick=
+            <a href=\"skype:$user->address?call\"><img src='pix/createconference.gif' border='0' alt='Call' title='Call' onclick=
                 \"return skypeCheck();\"></a>
-            <a href=\"skype:$user->skype?chat\"><img src='pix/createchat.gif' border='0' alt='Chat'  title='Chat' onclick=
+            <a href=\"skype:$user->address?chat\"><img src='pix/createchat.gif' border='0' alt='Chat'  title='Chat' onclick=
                 \"return skypeCheck();\"></a>
-            <a href=\"skype:$user->skype?voicemail\"><img src='pix/sendvoicemail.gif' alt='Voice Mail' title=
+            <a href=\"skype:$user->address?voicemail\"><img src='pix/sendvoicemail.gif' alt='Voice Mail' title=
                 'Voice Mail' border='0' onclick=\"return skypeCheck();\"></a>
-            <a href=\"skype:$user->skype?add\"><img src='pix/addcontact.gif' border='0' alt='Add Contact' title=
+            <a href=\"skype:$user->address?add\"><img src='pix/addcontact.gif' border='0' alt='Add Contact' title=
                 'Add Contact' onclick=\"return skypeCheck();\"></a>
-            <a href=\"skype:$user->skype?sendfile\"><img src='pix/send.gif' border='0'  alt='Send File' title='Send File' onclick=
+            <a href=\"skype:$user->address?sendfile\"><img src='pix/send.gif' border='0'  alt='Send File' title='Send File' onclick=
                 \"return skypeCheck();\"></a>
             </td>";
         } else {
@@ -269,4 +271,35 @@ function skype_update_calendar(stdClass $skype, $cmid) {
         }
     }
     return true;
+}
+/**
+ * Update Skype user list for Moodle > 310.
+ *
+ * @param int $skypeusers
+ */
+function updateskypeusers($skypers) {
+    global $CFG, $USER, $OUTPUT;
+    if ($CFG->branch > 310) {
+        foreach ($skypers as $skypeusers) {
+        // The second param is the new name in the 311 profile, other fields!
+        $params = array($USER->id, "skype");
+        $sql = "SELECT uif.id,
+                       uif.shortname,
+                       uid.userid,
+                       uid.fieldid,
+                       uid.data
+                  FROM {user_info_field} uif
+             LEFT JOIN {user_info_data} uid ON uif.id = uid.fieldid
+                 WHERE uid.userid = ?
+                   AND uif.shortname = ?";
+        $rec = $DB->get_record_sql($sql, $params);
+
+        print_object('This is the current rec and the branch is greater than 310.');
+        print_object($rec);
+
+    }
+
+
+    }
+    return $skypers;
 }
