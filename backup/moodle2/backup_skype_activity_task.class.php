@@ -24,12 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot . '/mod/skype/backup/moodle2/backup_skype_stepslib.php'); // Because it exists (must).
+require_once(__DIR__ .'/backup_skype_stepslib.php'); // Because it exists (must).
 
 /**
  * Provides the steps to perform one complete backup of the Skype instance.
  *
- * @package mod_skype
+ * @package   mod_skype
  * @copyright 2016 onwards AL Rachels (drachels@drachels.com).
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
@@ -56,7 +56,7 @@ class backup_skype_activity_task extends backup_activity_task {
      * @param string $content some HTML text that eventually contains URLs to the activity instance scripts.
      * @return string $content The content with the URLs encoded.
      */
-    static public function encode_content_links($content) {
+    public static function encode_content_links($content) {
         global $CFG;
 
         $base = preg_quote($CFG->wwwroot, "/");
