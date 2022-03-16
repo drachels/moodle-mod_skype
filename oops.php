@@ -24,19 +24,17 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-
 require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
-require_once(__DIR__ . '/locallib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID.
 
 if ($id) {
     $cm         = get_coursemodule_from_id('skype', $id, 0, false, MUST_EXIST);
     $course     = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $skype  = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
+    $skype      = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
 } else if ($n) {
-    $skype  = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
+    $skype      = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
     $course     = $DB->get_record('course', array('id' => $skype->course), '*', MUST_EXIST);
     $cm         = get_coursemodule_from_instance('skype', $skype->id, $course->id, false, MUST_EXIST);
 } else {
@@ -46,14 +44,13 @@ if ($id) {
 $context = context_module::instance($cm->id);
 require_login($course, true, $cm);
 
-//$PAGE->set_url('/mod/skype/oops.php', null);
+// $PAGE->set_url('/mod/skype/oops.php', null);
 $PAGE->set_title('Using Skype Activity');
-//$PAGE->set_title($skype->name);
-
+// $PAGE->set_title($skype->name);
 
 $output = '';
 
-//echo $this->output->box_start('generalbox boxwidthwide boxaligncenter');
+// echo $this->output->box_start('generalbox boxwidthwide boxaligncenter');
 echo '<style>
     html {
         padding-right: 0px; padding-left: 0px; padding-BOTTOM: 0px; margin: 0px; padding-TOP: 0px
@@ -101,15 +98,12 @@ echo '<div><p><strong>ELA-Skype is free, easy and quick to download and install.
 echo '<p>It works with Windows, Mac OS X, Linux and Pocket PC, and contains absolutely 
 no spyware, adware, malware or anything like that';
 
-//echo '<div><p>';
+// echo '<div><p>';
 echo '<form name="download-ff" id="download-ff" method="get" action="http://www.skype.com/go/getskype" target=_blank>';
 echo '<input type="submit" class="btn btn-primary" name="download" value="Download Skype" />';
 
 echo '</form></p>';
 echo '</div>';
 
-
-
-//echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
-//echo $this->output->box_end();
-?>
+// echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
+// echo $this->output->box_end();
