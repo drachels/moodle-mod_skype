@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the backup steps that will be used by the backup_assign_activity_task
+ * Define all the backup steps that will be used by the backup_assign_activity_task.
  *
  * @package mod_skype
  * @copyright 2016 onwards AL Rachels (drachels@drachels.com).
@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/skype/backup/moodle2/restore_skype_stepslib.php');
+require_once(__DIR__ .'/restore_skype_stepslib.php');
 
 /**
  * Skype restore task that provides all the settings and steps to perform one
@@ -57,7 +57,7 @@ class restore_skype_activity_task extends restore_activity_task {
      *
      * @return array
      */
-    static public function define_decode_contents() {
+    public static function define_decode_contents() {
         $contents = array();
 
         $contents[] = new restore_decode_content('skype', array('intro'), 'skype');
@@ -71,7 +71,7 @@ class restore_skype_activity_task extends restore_activity_task {
      *
      * @return array of restore_decode_rule
      */
-    static public function define_decode_rules() {
+    public static function define_decode_rules() {
         $rules = array();
 
         $rules[] = new restore_decode_rule('SKYPEVIEWBYID',
@@ -93,7 +93,7 @@ class restore_skype_activity_task extends restore_activity_task {
      *
      * @return array of restore_log_rule
      */
-    static public function define_restore_log_rules() {
+    public static function define_restore_log_rules() {
         $rules = array();
 
         $rules[] = new restore_log_rule('skype', 'add', 'view.php?id={course_module}', '{skype}');
@@ -115,7 +115,7 @@ class restore_skype_activity_task extends restore_activity_task {
      *
      * @return array
      */
-    static public function define_restore_log_rules_for_course() {
+    public static function define_restore_log_rules_for_course() {
         $rules = array();
 
         return $rules;
