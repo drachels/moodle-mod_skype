@@ -27,9 +27,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
-require_once(dirname(__FILE__).'/lib.php');
-require_once(dirname(__FILE__).'/locallib.php');
+use \mod_skype\local\results;
+
+require_once(__DIR__ .'/../../config.php');
+require_once(__DIR__ .'/lib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID.
 $n  = optional_param('n', 0, PARAM_INT);  // Skype instance ID - it should be named as the first character of the module.
@@ -63,6 +64,10 @@ $event->add_record_snapshot('course', $course);
 $event->add_record_snapshot('skype', $skype);
 $event->trigger();
 
+// 20220311 Added completion for viewed.
+$completion = new completion_info($course);
+$completion->set_module_viewed($cm);
+
 // Print the page header.
 $skypeoutput = $PAGE->get_renderer('mod_skype');
 
@@ -78,15 +83,20 @@ if ($CFG->branch < 32) {
 // Output starts here.
 echo $OUTPUT->header();
 
-// Replace the following lines with you own code.
 echo $OUTPUT->heading($skype->name);
 
+    // 20220301 Added activity completion to the hotquestion description. Does not work due to the echo line.
+    //$cminfo = cm_info::create($cm);
+    //$completiondetails = \core_completion\cm_completion_details::get_instance($cminfo, $USER->id);
+    //$activitydates = \core\activity_dates::get_dates_for_module($cminfo, $USER->id);
+    //echo $output->introduction($cminfo, $completiondetails, $activitydates);
+
 // Availability restrictions applied to students only.
-if ((!(is_available($skype))) && (!(has_capability('mod/skype:manageentries', $context)))) {
+if ((!(results::is_available($skype))) && (!(has_capability('mod/skype:manageentries', $context)))) {
     if ($skype->timeclose != 0 && time() > $skype->timeclose) {
-        echo $skypeoutput->skype_inaccessible(get_string('skypeclosed', 'skype', userdate($skype->timeclose)));
+        echo $skypeoutput->results::skype_inaccessible(get_string('skypeclosed', 'skype', userdate($skype->timeclose)));
     } else {
-        echo $skypeoutput->skype_inaccessible(get_string('skypeopen', 'skype', userdate($skype->timeopen)));
+        echo $skypeoutput->results::skype_inaccessible(get_string('skypeopen', 'skype', userdate($skype->timeopen)));
     }
     echo $OUTPUT->footer();
     exit();
@@ -94,7 +104,12 @@ if ((!(is_available($skype))) && (!(has_capability('mod/skype:manageentries', $c
     echo $OUTPUT->box(get_string('timetoskype', 'skype', userdate($skype->chattime)), 'generalbox boxaligncenter');
     echo $OUTPUT->box($skype->intro, 'generalbox boxaligncenter');
 
-    if (empty($USER->skype)) {
+    // 20210531 Check to see is user has a Skype ID in their profile.
+    $params = array($USER->id, "skype");
+    $rec = results::user_skype_id($params);
+
+    // 20210531 switch from using $USER->skype to using $rec->data.
+    if (empty($rec->data)) {
         $updateskypeidlink = '<a href="'.$CFG->wwwroot.'/user/edit.php?id='.$USER->id
             .'&course=1">'.get_string('updateskypeid', 'skype').'</a>';
         echo $OUTPUT->box(get_string('updateskypeidnote', 'skype', $updateskypeidlink), 'error');
@@ -110,7 +125,7 @@ if ((!(is_available($skype))) && (!(has_capability('mod/skype:manageentries', $c
         if (empty($skypeusers)) {
             echo $OUTPUT->box(get_string('nobody', 'skype'), 'error');
         } else {
-            echo $OUTPUT->box(printskypeuserslist($skypeusers), 'generalbox boxaligncenter');
+            echo $OUTPUT->box(results::printskypeuserslist($skypeusers), 'generalbox boxaligncenter');
         }
     }
 }
