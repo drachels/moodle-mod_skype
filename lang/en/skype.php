@@ -53,6 +53,7 @@ $string['skype'] = 'Skype';
 $string['skypeclosed'] = 'This Skype closed on {$a}.';
 $string['skypeclosetime'] = 'Close time';
 $string['skypefieldset'] = 'Custom example fieldset';
+$string['skypeid'] = 'Skype ID';
 $string['skypename_help'] = 'This is the content of the help tooltip associated with the Skype field. Markdown syntax is supported.';
 $string['skypename'] = 'Skype name';
 $string['skypeopen'] = 'This Skype will be open on {$a}.';
@@ -60,7 +61,5 @@ $string['skypeopentime'] = 'Open time';
 $string['timetoskype'] = 'Time to Skype: {$a}';
 $string['type'] = 'Type';
 $string['updateskypeid'] = 'Update your Skype ID from your profile page';
-$string['updateskypeidnote'] = 'In order to participate in skype activity, you need to update you Skype ID in the system. {$a}';
+$string['updateskypeidnote'] = 'In order to participate in skype activity, you need to update your Skype ID in the system. {$a}';
 $string['withselected'] = 'With Selected (through check boxes):';
-// Deprecated.
-$string['skypeid'] = 'Skype ID2';
