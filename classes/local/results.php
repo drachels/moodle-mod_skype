@@ -24,7 +24,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 namespace mod_skype\local;
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die(); // @codingStandardsIgnoreLine
 define('SKYPE_EVENT_TYPE_OPEN', 'open');
 define('SKYPE_EVENT_TYPE_CLOSE', 'close');
 define('SKYPE_EVENT_TYPE_CHATTIME', 'chattime');
@@ -39,7 +39,7 @@ use calendar_event;
  * @copyright  AL Rachels (drachels@drachels.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class results  {
+class results {
 
     /**
      * Check to see if this Skype is available for use.
@@ -333,7 +333,7 @@ class results  {
         return true;
     }
     /**
-     * Returns HTML for a skype inaccessible message
+     * Returns HTML for a skype inaccessible message.
      *
      * 20210531 Moved here.
      * @param string $message
@@ -341,16 +341,10 @@ class results  {
      */
     public static function skype_inaccessible($message) {
         global $CFG;
-        $output  = $this->output->box_start('generalbox boxaligncenter');
-        $output .= $this->output->box_start('center');
-        $output .= (get_string('notavailable', 'skype'));
+
+        $output = (get_string('notavailable', 'skype'));
         $output .= $message;
-        $output .= $this->output->box('<a href="'.$CFG->wwwroot.'/course/view.php?id='
-                . $this->page->course->id .'">'
-                . get_string('returnto', 'skype', format_string($this->page->course->fullname, true))
-                .'</a>', 'skypebutton standardbutton');
-        $output .= $this->output->box_end();
-        $output .= $this->output->box_end();
+
         return $output;
     }
 }
