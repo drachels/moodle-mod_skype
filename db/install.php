@@ -25,7 +25,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die; // @codingStandardsIgnoreLine
 
 /**
  * Post installation procedure
@@ -53,7 +53,7 @@ function xmldb_skype_install() {
         // NOTE: I think this needs to be OUT of the if, in case, Other fields is already there!
         // Need to test this!
         $temp = $DB->get_record('user_info_category', $params);
-        
+
         // Check to see if skype is in the user_info_field table already.
         $params = array(
             'shortname' => 'skype'
