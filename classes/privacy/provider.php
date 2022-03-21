@@ -25,7 +25,7 @@
 
 namespace mod_skype\privacy;
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die(); // @codingStandardsIgnoreLine
 
 /**
  * Privacy main class.
