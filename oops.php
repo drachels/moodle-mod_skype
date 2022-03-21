@@ -44,9 +44,7 @@ if ($id) {
 $context = context_module::instance($cm->id);
 require_login($course, true, $cm);
 
-// $PAGE->set_url('/mod/skype/oops.php', null);
 $PAGE->set_title('Using Skype Activity');
-// $PAGE->set_title($skype->name);
 
 $output = '';
 
@@ -91,11 +89,11 @@ echo '<style>
 echo '<h1>Hello!</h1>';
 echo '<p id=col1>The Skype actvity requires that you have the latest version of Skype 
 installed. (Don’t worry, you only need to do this once.)</p>';
-echo '<p id=col2>Skype is a little piece of software that lets you make free calls 
-over the internet.<BR><a href="http://www.skype.com/" target=_blank>Learn more 
+echo '<p id=col2>Skype is a little piece of software that lets you make free calls
+over the internet.<BR><a href="http://www.skype.com/" target=_blank>Learn more
 about Skype</a></p>';
 echo '<div><p><strong>ELA-Skype is free, easy and quick to download and install.</strong></p>';
-echo '<p>It works with Windows, Mac OS X, Linux and Pocket PC, and contains absolutely 
+echo '<p>It works with Windows, Mac OS X, Linux and Pocket PC, and contains absolutely
 no spyware, adware, malware or anything like that';
 
 // echo '<div><p>';
