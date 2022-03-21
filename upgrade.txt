@@ -33,7 +33,26 @@ Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
 
-=== 3.8.0 ===
+=== 3.8.2 ===
+20220311 Skype - Missing completion information on the view.php page. Set the case
+    in lib.php to true and added the code in view.php to give the basic 'view'
+    completion.
+20220319 Skype_830 - Exception - Using $this when not in object context. Replaced
+    ten lines of code with simpler, two lines of code.
+20220321 Skype_832 - $string['skypeid'] = 'Skype ID2'; needs to be removed from
+    deprecated list and modified. Changed the string by removing the, 2, so that
+    it became, $string['skypeid'] = 'Skype ID'; Also, removed it from the
+    deprecated part of the language list and placed it alphabetically where it
+    should be.
+20220321 Skype_833 - Need new skype_supports($feature) for Moodle 4.0. Created
+    two versions of the switch ($feature), and added a branch check to control
+    which is used. The first switch includes the needed new feature, while the
+    second, does not.
+
+
+=== 3.8.0/1 ===
+Most of this was done for internal 3.8.0 that was never released. Release was
+    done as 3.8.1 only.
 20210503 Skype - Need code for GDPR compliance. Got an email with pull request info.
     Looked at the code and merged the pull request. Adds code to use the following
     string: $string['privacy:metadata'] = 'Skype module does not store private data.';
@@ -47,7 +66,7 @@ Moodle Versions
 20210725 Skype_728 - install.php needs updating for Moodle 3.11. Began code development
     and made changes as needed. Seems to be working correctly.
 20210727 Skype_729 - uninstall.php needs to be created for Moodle 3.11. Created file and
-    just checked code..
+    just checked code.
 20210726 Skype_727 - Convert from lib.php cron function to /classes/task/cron_task.php.
     Created skype/db/tasks.php. Created skype/classes/task/cron_task.php. Created
     new string, $string['crontask'] = 'Background processing for Skype module';
@@ -57,9 +76,6 @@ Moodle Versions
     this change. Due to extreme health issues for my wife that lead to her death,
     I tabled work on this until 20220313. I have ran tests and it seems to upgrade
     in Moodle 3.11 and work as expected.
-
-
-
 
 === 3.7.0 ===
 20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line
