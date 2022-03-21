@@ -85,18 +85,12 @@ echo $OUTPUT->header();
 
 echo $OUTPUT->heading($skype->name);
 
-    // 20220301 Added activity completion to the hotquestion description. Does not work due to the echo line.
-    //$cminfo = cm_info::create($cm);
-    //$completiondetails = \core_completion\cm_completion_details::get_instance($cminfo, $USER->id);
-    //$activitydates = \core\activity_dates::get_dates_for_module($cminfo, $USER->id);
-    //echo $output->introduction($cminfo, $completiondetails, $activitydates);
-
-// Availability restrictions applied to students only.
+// 20220317 Modified call to results. Availability restrictions applied to students only.
 if ((!(results::is_available($skype))) && (!(has_capability('mod/skype:manageentries', $context)))) {
     if ($skype->timeclose != 0 && time() > $skype->timeclose) {
-        echo $skypeoutput->results::skype_inaccessible(get_string('skypeclosed', 'skype', userdate($skype->timeclose)));
+        echo results::skype_inaccessible(get_string('skypeclosed', 'skype', userdate($skype->timeclose)));
     } else {
-        echo $skypeoutput->results::skype_inaccessible(get_string('skypeopen', 'skype', userdate($skype->timeopen)));
+        echo results::skype_inaccessible(get_string('skypeopen', 'skype', userdate($skype->timeopen)));
     }
     echo $OUTPUT->footer();
     exit();
