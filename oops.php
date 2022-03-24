@@ -48,7 +48,6 @@ $PAGE->set_title('Using Skype Activity');
 
 $output = '';
 
-// echo $this->output->box_start('generalbox boxwidthwide boxaligncenter');
 echo '<style>
     html {
         padding-right: 0px; padding-left: 0px; padding-BOTTOM: 0px; margin: 0px; padding-TOP: 0px
@@ -87,7 +86,7 @@ echo '<style>
 
     </style>';
 echo '<h1>Hello!</h1>';
-echo '<p id=col1>The Skype actvity requires that you have the latest version of Skype 
+echo '<p id=col1>The Skype actvity requires that you have the latest version of Skype
 installed. (Don’t worry, you only need to do this once.)</p>';
 echo '<p id=col2>Skype is a little piece of software that lets you make free calls
 over the internet.<BR><a href="http://www.skype.com/" target=_blank>Learn more
@@ -102,6 +101,3 @@ echo '<input type="submit" class="btn btn-primary" name="download" value="Downlo
 
 echo '</form></p>';
 echo '</div>';
-
-// echo '<input class="btn btn-primary" id="btnDownload" name="download" type="submit" value="Download Skype" />';
-// echo $this->output->box_end();

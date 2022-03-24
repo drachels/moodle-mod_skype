@@ -57,7 +57,7 @@ class results {
      * Get a users Skype ID if it is available in their profile.
      *
      * 20210531 Moved here.
-     * @param int $skype
+     * @param int $params
      */
     public static function user_skype_id($params) {
         global $CFG, $DB, $USER;
@@ -101,6 +101,7 @@ class results {
     public static function printskypeuserslist($skypeusers) {
         global $CFG, $USER, $OUTPUT;
 
+        // These two scripts are what adds the, With Selected (through check boxes): message.
         $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
         <script>
         function addthisname(skypeid){
@@ -166,6 +167,7 @@ class results {
             $userlist .= "<td>".$OUTPUT->user_picture($user, array('courseid' => 1))."</td>";
             $userlist .= "<td>".fullname($user)."</td>";
             $userlist .= "<td>".$userskypeid."</td>";
+            // If the user had a SkypeID, show the four possible buttons for a call.
             if (!empty($rec->data)) {
                 $userlist .= "<td>
                 <a href=\"skype:$rec->data?call\"><img src='pix/createconference.gif' border='0' alt='Call' title='Call' onclick=

@@ -27,8 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ .'/restore_skype_stepslib.php');
 
 /**
- * Skype restore task that provides all the settings and steps to perform one
- * complete restore of the activity.
+ * Skype restore task that provides all the settings and steps to perform restore of the activity.
  *
  * @package mod_skype
  * @copyright 2016 onwards AL Rachels (drachels@drachels.com).
@@ -86,10 +85,10 @@ class restore_skype_activity_task extends restore_activity_task {
     }
 
     /**
-     * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
-     * skype logs. It must return one array
-     * of {@link restore_log_rule} objects.
+     * Define the restore log rules.
+     *
+     * These will be applied by the {@link restore_logs_processor} when restoring
+     * skype logs. It must return one array of {@link restore_log_rule} objects.
      *
      * @return array of restore_log_rule
      */
