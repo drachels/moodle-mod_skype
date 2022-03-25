@@ -48,7 +48,8 @@ Moodle Versions
     two versions of the switch ($feature), and added a branch check to control
     which is used. The first switch includes the needed new feature, while the
     second, does not.
-
+20220325 Skype_706 - Need to fix code style errors/warnings. Ran through and fixed
+     all the errors and warnings listed on Moodle for Skype v3.8.1.
 
 === 3.8.0/1 ===
 Most of this was done for internal 3.8.0 that was never released. Release was
