@@ -101,7 +101,7 @@ class results {
     public static function printskypeuserslist($skypeusers) {
         global $CFG, $USER, $OUTPUT;
 
-        // These two scripts are what adds the, With Selected (through check boxes): message.
+        // These two scripts are what builds up the message, With Selected (through check boxes):.
         $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
         <script>
         function addthisname(skypeid){
@@ -113,12 +113,30 @@ class results {
             }
             if(skypenamelist !=''){
                 document.getElementById('display_call_all_skype').style.display = 'block';
-                document.getElementById('who_to_call').innerHTML='<a href=\"skype:'+skypenamelist+'?call\">"
-                ."<img src=\"pix/createconference.gif\" border=\"0\" alt=\"Call\" title=\"Call\" onclick=\"return skypeCheck();\"></a>"
-                ." <a href=\"skype:'+skypenamelist+'?chat\"><img src=\"pix/createchat.gif\" border=\"0\" alt=\"Chat\"  title=\"Chat\" onclick=\"return skypeCheck();\"></a>"
-                ." <a href=\"skype:'+skypenamelist+'?voicemail\"><img src=\"pix/sendvoicemail.gif\" alt=\"Voice Mail\" title=\"Voice Mail\" border=\"0\" onclick=\"return skypeCheck();\"></a>"
-                ." <a href=\"skype:'+skypenamelist+'?add\"><img src=\"pix/addcontact.gif\" border=\"0\" alt=\"Add Contact\" title=\"Add Contact\" onclick=\"return skypeCheck();\"></a>"
-                ." <a href=\"skype:'+skypenamelist+'?sendfile\"><img src=\"pix/send.gif\" border=\"0\"  alt=\"Send File\" title=\"Send File\" onclick=\"return skypeCheck();\"></a>';
+                document.getElementById('who_to_call').innerHTML='"
+                    ."<a href=\"skype:'+skypenamelist+'?call\">"
+                        ."<img src=\"pix/createconference.gif\""
+                        ." border=\"0\" alt=\"Call\" title=\"Call\""
+                        ." onclick=\"return skypeCheck();\">"
+                    ."</a>"
+                    ." <a href=\"skype:'+skypenamelist+'?chat\">"
+                        ."<img src=\"pix/createchat.gif\""
+                        ." border=\"0\" alt=\"Chat\"  title=\"Chat\""
+                        ." onclick=\"return skypeCheck();\">"
+                    ."</a>"
+                    ." <a href=\"skype:'+skypenamelist+'?voicemail\">"
+                        ."<img src=\"pix/sendvoicemail.gif\" alt=\"Voice Mail\" title=\"Voice Mail\""
+                        ." border=\"0\" onclick=\"return skypeCheck();\">"
+                    ."</a>"
+                    ." <a href=\"skype:'+skypenamelist+'?add\">"
+                        ."<img src=\"pix/addcontact.gif\""
+                        ." border=\"0\" alt=\"Add Contact\" title=\"Add Contact\""
+                        ." onclick=\"return skypeCheck();\">"
+                    ."</a>"
+                    ." <a href=\"skype:'+skypenamelist+'?sendfile\">"
+                        ."<img src=\"pix/send.gif\" border=\"0\"  alt=\"Send File\" title=\"Send File\""
+                        ." onclick=\"return skypeCheck();\">"
+                    ."</a>';
             }else{
                 document.getElementById('display_call_all_skype').style.display = 'none';
                 if(document.getElementById('who_to_call')){

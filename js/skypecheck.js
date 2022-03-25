@@ -29,8 +29,16 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-var activex = ((navigator.userAgent.indexOf('Win') != -1) && (navigator.userAgent.indexOf('MSIE') != -1) && (parseInt(navigator.appVersion) >= 4));
-var CantDetect = ((navigator.userAgent.indexOf('Safari') != -1) || (navigator.userAgent.indexOf('Opera') != -1));
+var activex = ((navigator.userAgent.indexOf('Win') != -1)
+              + && (navigator.userAgent.indexOf('MSIE') != -1)
+              + && (parseInt(navigator.appVersion) >= 4));
+var CantDetect = ((navigator.userAgent.indexOf('Safari') != -1)
+                 + || (navigator.userAgent.indexOf('Opera') != -1));
+var w,
+    h,
+    oopswindow,
+    detected,
+    isSkypeInstalled;
 
 /**
  * Adds oopsPopup object.
@@ -38,7 +46,9 @@ var CantDetect = ((navigator.userAgent.indexOf('Safari') != -1) || (navigator.us
  * @returns false
  */
 function oopsPopup() {
-    if ((navigator.language && navigator.language.indexOf("ja") != -1) || (navigator.systemLanguage && navigator.systemLanguage.indexOf("ja") != -1) || (navigator.userLanguage && navigator.userLanguage.indexOf("ja") != -1)) {
+    if ((navigator.language && navigator.language.indexOf("ja") != -1)
+       + || (navigator.systemLanguage && navigator.systemLanguage.indexOf("ja") != -1)
+       + || (navigator.userLanguage && navigator.userLanguage.indexOf("ja") != -1)) {
         var URLtoOpen = "skype_not_found/oops.html";
     } else {
         var URLtoOpen = "skype_not_found/oops.html";
@@ -49,7 +59,13 @@ function oopsPopup() {
     w = screen.availWidth;
     h = screen.availHeight;
     var leftPos = (w-popW)/2, topPos = (h-popH)/2;
-    oopswindow = window.open(URLtoOpen, windowName,'width=' + popW + ',height=' + popH + ',scrollbars=' + scrollB + ',screenx=' + leftPos + ',screeny=' + topPos + ',top=' + topPos +',left=' + leftPos);
+    oopswindow = window.open(URLtoOpen, windowName,'width=' + popW
+                                                + ',height=' + popH
+                                                + ',scrollbars=' + scrollB
+                                                + ',screenx=' + leftPos
+                                                + ',screeny=' + topPos
+                                                + ',top=' + topPos
+                                                + ',left=' + leftPos);
     return false;
 }
 
@@ -117,7 +133,10 @@ function addDetection() {
     var pageLinks = document.getElementsByTagName("a");
     for (var i=0; i < pageLinks.length; i++) {
         if (pageLinks[i].childNodes[0] && pageLinks[i].childNodes[0].src) {
-            if ((pageLinks[i].childNodes[0].src.indexOf('download.skype.com\/share\/skypebuttons') != -1 || pageLinks[i].childNodes[0].src.indexOf('mystatus.skype.com') != -1) && (typeof (pageLinks[i].onclick) == "undefined" || pageLinks[i].onclick === null)) {
+            if ((pageLinks[i].childNodes[0].src.indexOf('download.skype.com\/share\/skypebuttons') != -1
+                + || pageLinks[i].childNodes[0].src.indexOf('mystatus.skype.com') != -1)
+                + && (typeof (pageLinks[i].onclick) == "undefined"
+                + || pageLinks[i].onclick === null)) {
                 pageLinks[i].onclick = function sChk() {
                     return skypeCheck();
                 }
