@@ -27,27 +27,6 @@
 require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
 
-$id = optional_param('id', 0, PARAM_INT); // Course_module ID.
-
-if ($id) {
-    $cm         = get_coursemodule_from_id('skype', $id, 0, false, MUST_EXIST);
-    $course     = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $skype      = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
-} else if ($n) {
-    $skype      = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
-    $course     = $DB->get_record('course', array('id' => $skype->course), '*', MUST_EXIST);
-    $cm         = get_coursemodule_from_instance('skype', $skype->id, $course->id, false, MUST_EXIST);
-} else {
-    error('You must specify a course_module ID or an instance ID');
-}
-
-$context = context_module::instance($cm->id);
-require_login($course, true, $cm);
-
-$PAGE->set_title('Using Skype Activity');
-
-$output = '';
-
 echo '<style>
     html {
         padding-right: 0px; padding-left: 0px; padding-BOTTOM: 0px; margin: 0px; padding-TOP: 0px
