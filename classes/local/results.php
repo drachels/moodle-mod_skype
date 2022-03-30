@@ -102,7 +102,7 @@ class results {
         global $CFG, $USER, $OUTPUT;
 
         // These two scripts are what builds up the message, With Selected (through check boxes):.
-        $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypeCheck.js\"></script>
+        $userlist = "<script src=\"$CFG->wwwroot/mod/skype/js/skypecheck.js\"></script>
         <script>
         function addthisname(skypeid){
             var skypenamelist = '';
