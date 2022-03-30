@@ -50,6 +50,10 @@ Moodle Versions
     second, does not.
 20220325 Skype_706 - Need to fix code style errors/warnings. Ran through and fixed
      all the errors and warnings listed on Moodle for Skype v3.8.1.
+20220330 Skype_835 - The oops.php page is not triggered when Skype software is NOT
+    installed on the user clients computer. There was a camel case name error in
+    results.php which caused the skypecheck.js file to not be loaded. In it there
+    was a location and name error oops.php. Both are now fixed.
 
 === 3.8.0/1 ===
 Most of this was done for internal 3.8.0 that was never released. Release was
