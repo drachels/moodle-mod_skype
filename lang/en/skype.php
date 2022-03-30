@@ -52,6 +52,7 @@ $string['skype:view'] = 'Can view';
 $string['skype'] = 'Skype';
 $string['skypeclosed'] = 'This Skype closed on {$a}.';
 $string['skypeclosetime'] = 'Close time';
+$string['skypeerror'] = 'You must specify a course_module ID or an instance ID';
 $string['skypefieldset'] = 'Custom example fieldset';
 $string['skypeid'] = 'Skype ID';
 $string['skypename_help'] = 'This is the content of the help tooltip associated with the Skype field. Markdown syntax is supported.';
