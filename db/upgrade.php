@@ -41,7 +41,7 @@ defined('MOODLE_INTERNAL') || die(); // @codingStandardsIgnoreLine
  */
 function xmldb_skype_upgrade($oldversion) {
 
-    global $DB;
+    global $CFG, $DB;
 
     $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
 
