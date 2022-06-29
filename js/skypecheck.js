@@ -29,7 +29,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-window.alert("1 Made it to the skypeCheck.js file.");
+//window.alert("1 Made it to the skypeCheck.js file.");
 
 var activex = ((navigator.userAgent.indexOf('Win') != -1) &&
               + (navigator.userAgent.indexOf('MSIE') != -1) &&
@@ -43,7 +43,7 @@ var w,
     detected,
     isSkypeInstalled;
 
-    window.alert("2 Made it to the skypeCheck.js file. CantDetect = " + CantDetect + " activex = " + activex);
+    //window.alert("2 Made it to the skypeCheck.js file. CantDetect = " + CantDetect + " activex = " + activex);
 
 /**
  * Adds oopsPopup object.
@@ -52,7 +52,7 @@ var w,
  */
 function oopsPopup() {
 
-    window.alert("1 Before the if and the navigator.language is = " + navigator.language + " navigator.language.indexOf('ja') is = " + navigator.language.indexOf('ja'));
+    //window.alert("1 Before the if and the navigator.language is = " + navigator.language + " navigator.language.indexOf('ja') is = " + navigator.language.indexOf('ja'));
     //window.alert("2 Still before the if and the navigator.systemLanguage is = " + navigator.systemLanguage + " navigator.systemLanguage.indexOf('ja') is = " + navigator.systemLanguage.indexOf('ja'));
 
     if ((navigator.language && navigator.language.indexOf("ja") != -1) ||
@@ -61,13 +61,13 @@ function oopsPopup() {
         //var URLtoOpen = "skype_not_found/oops.html";
         var URLtoOpen = "oops.php";
 
-        window.alert("In the if part.");
+        //window.alert("In the if part.");
 
     } else {
         //var URLtoOpen = "skype_not_found/oops.html";
         var URLtoOpen = "oops.php";
         // Firefox is coming throught this else.
-        window.alert("In the else part and the URLtoOpen = " + URLtoOpen);
+        //window.alert("In the else part and the URLtoOpen = " + URLtoOpen);
 
     }
     var windowName = "ELA";
@@ -108,7 +108,7 @@ if (typeof (detected) == "undefined" && activex) {
  */
 function skypeCheck() {
 
-    window.alert("3 Made it to the function skypeCheck, and CantDetect is = " + CantDetect + " !activex = " + !activex);
+    //window.alert("3 Made it to the function skypeCheck, and CantDetect is = " + CantDetect + " !activex = " + !activex);
 
 
     if (CantDetect) {
@@ -117,7 +117,7 @@ function skypeCheck() {
         var skypeMime = navigator.mimeTypes["application/x-skype"];
         detected = true;
 
-        window.alert("4 Made it to the function skypeCheck, and in the elseif due to !activex = " + !activex + " and skypeMime = " + skypeMime);
+        //window.alert("4 Made it to the function skypeCheck, and in the elseif due to !activex = " + !activex + " and skypeMime = " + skypeMime);
 
         if (typeof (skypeMime) == "object") {
             return true;
@@ -141,7 +141,7 @@ function skypeCheck() {
  */
 function loadDetection() {
 
-    window.alert("5 Made it to the function loadDetection. ");
+    //window.alert("5 Made it to the function loadDetection. ");
 
     if (document.getElementById && document.getElementsByTagName) {
         if (window.addEventListener) {
@@ -159,7 +159,7 @@ function loadDetection() {
  */
 function addDetection() {
 
-    window.alert("6 Made it to the function addDetection. ");
+    //window.alert("6 Made it to the function addDetection. ");
 
     var pageLinks = document.getElementsByTagName("a");
     for (var i=0; i < pageLinks.length; i++) {
