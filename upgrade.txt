@@ -33,6 +33,10 @@ Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
 
+=== 3.8.3 ===
+20220614 Skype_872 - Need upgrade.php code added like I have in the install.php file
+    for the new fields. Created new code.
+
 === 3.8.2 ===
 20220311 Skype - Missing completion information on the view.php page. Set the case
     in lib.php to true and added the code in view.php to give the basic 'view'
@@ -54,6 +58,7 @@ Moodle Versions
     installed on the user clients computer. There was a camel case name error in
     results.php which caused the skypecheck.js file to not be loaded. In it there
     was a location and name error oops.php. Both are now fixed.
+
 
 === 3.8.0/1 ===
 Most of this was done for internal 3.8.0 that was never released. Release was
