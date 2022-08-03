@@ -29,7 +29,9 @@ defined('MOODLE_INTERNAL') || die; // @codingStandardsIgnoreLine
  */
 function xmldb_skype_uninstall() {
     global $DB, $CFG;
-    if ($CFG->branch > 310) {
+    /*
+    if (($CFG->branch > 310) && (is_siteadmin())) {
+        // Need to pose a question regarding deleting profile information.
         // Check to see if skype is in the user_info_field table.
         $params1 = array(
             'shortname' => 'skype'
@@ -46,7 +48,8 @@ function xmldb_skype_uninstall() {
             $DB->delete_records('user_info_field', null, $params1);
         }
     }
-    // Also delete all the Skype activity instances.
+    */
+    // Delete all the Skype activity instances.
     $DB->delete_records('skype', null);
     return true;
 }
