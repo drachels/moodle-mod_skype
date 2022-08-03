@@ -32,6 +32,9 @@ sending an email, leave a comment at
 Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
+=== 3.8.4 ===
+20220803 Skype_903 - Deleting user profile should not delete the users Skype ID.
+    Commented out lines of code doing the delete. 
 
 === 3.8.3 ===
 20220614 Skype_872 - Need upgrade.php code added like I have in the install.php file
