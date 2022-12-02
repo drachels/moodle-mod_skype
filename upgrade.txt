@@ -32,89 +32,106 @@ sending an email, leave a comment at
 Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
-=== 3.8.4 ===
-20220803 Skype_903 - Deleting user profile should not delete the users Skype ID.
-    Commented out lines of code doing the delete. 
 
-=== 3.8.3 ===
-20220614 Skype_872 - Need upgrade.php code added like I have in the install.php file
+
+=== 3.8.4 ===pending
+20220803 Skype_903 - Deleting Skype activity should not delete the users Skype ID
+    from the user profile. For now I have just commented out portions of the
+    skype/db/uninstall.php file so that only the Skype activities are deleted and
+    profiles are not touched.
+20221130 Skype_970 - The skypecheck.js file needs commented out code cleanup. Removed
+    unneeded comments and code.
+
+=== 3.8.3 ===2022062900
+20220614 Skype_872v - Need upgrade.php code added like I have in the install.php file
     for the new fields. Created new code.
 
-=== 3.8.2 ===
-20220311 Skype - Missing completion information on the view.php page. Set the case
+=== 3.8.2 ===2022032100
+20220311 Skype_829v - Missing completion information on the view.php page. Set the case
     in lib.php to true and added the code in view.php to give the basic 'view'
     completion.
-20220319 Skype_830 - Exception - Using $this when not in object context. Replaced
-    ten lines of code with simpler, two lines of code.
-20220321 Skype_832 - $string['skypeid'] = 'Skype ID2'; needs to be removed from
+20220319 Skype_830v - Exception - Using $this when not in object context. Replaced
+    ten lines of code with simpler, two lines of code. See the ticket for details.
+20220321 Skype_832v - $string['skypeid'] = 'Skype ID2'; needs to be removed from
     deprecated list and modified. Changed the string by removing the, 2, so that
     it became, $string['skypeid'] = 'Skype ID'; Also, removed it from the
     deprecated part of the language list and placed it alphabetically where it
     should be.
-20220321 Skype_833 - Need new skype_supports($feature) for Moodle 4.0. Created
-    two versions of the switch ($feature), and added a branch check to control
-    which is used. The first switch includes the needed new feature, while the
-    second, does not.
-20220325 Skype_706 - Need to fix code style errors/warnings. Ran through and fixed
+20220321 Skype_833v - Need new skype_supports($feature) for Moodle 4.0. See the
+    ticket for details. Rewrote the function to work like it does in Diary.
+20220325 Skype_706v - Need to fix code style errors/warnings. Ran through and fixed
      all the errors and warnings listed on Moodle for Skype v3.8.1.
-20220330 Skype_835 - The oops.php page is not triggered when Skype software is NOT
+20220330 Skype_835v - The oops.php page is not triggered when Skype software is NOT
     installed on the user clients computer. There was a camel case name error in
     results.php which caused the skypecheck.js file to not be loaded. In it there
     was a location and name error oops.php. Both are now fixed.
 
-
-=== 3.8.0/1 ===
+=== 3.8.0/1 ===2021072800/2022031600
 Most of this was done for internal 3.8.0 that was never released. Release was
     done as 3.8.1 only.
-20210503 Skype - Need code for GDPR compliance. Got an email with pull request info.
+20210503 Skype_708v - Need code for GDPR compliance. Got an email with pull request info.
     Looked at the code and merged the pull request. Adds code to use the following
     string: $string['privacy:metadata'] = 'Skype module does not store private data.';
-20210526 Skype_725 - Text for view.php error in line 55 is hardcoded and needs to be
+20210526 Skype_725v - Text for view.php error in line 55 is hardcoded and needs to be
     a string. Added new code for the error and the new string.
-20210601 Skype_709 - Need to remove escape characters in script in locallib.php.
-     20210601 As of this date, locallib.php has been discarded and the functions
-     moved to /skype/classes/local/results.php. Changes were made as needed.
-20210602 Skype_726 - Multiple places and files need change to (__DIR__) in require_once.
+20210601 Skype_709v - Need to remove escape characters in script in locallib.php.
+    20210601 As of this date, locallib.php has been discarded and the functions
+    moved to /skype/classes/local/results.php. Changes were made as needed.
+20210602 Skype_726v - Multiple places and files need change to (__DIR__) in require_once.
     Made changes in multiple files. See the ticket for details.
-20210725 Skype_728 - install.php needs updating for Moodle 3.11. Began code development
+20210725 Skype_728v - install.php needs updating for Moodle 3.11. Began code development
     and made changes as needed. Seems to be working correctly.
-20210727 Skype_729 - uninstall.php needs to be created for Moodle 3.11. Created file and
+20210727 Skype_729v - uninstall.php needs to be created for Moodle 3.11. Created file and
     just checked code.
-20210726 Skype_727 - Convert from lib.php cron function to /classes/task/cron_task.php.
+20210726 Skype_727v - Convert from lib.php cron function to /classes/task/cron_task.php.
     Created skype/db/tasks.php. Created skype/classes/task/cron_task.php. Created
     new string, $string['crontask'] = 'Background processing for Skype module';
-20210726 Skype_705 - Optional field, Skype, missing in Moodle 3.11. Created code
+20210726 Skype_705v - Optional field, Skype, missing in Moodle 3.11. Created code
     changes as needed to use new tables and fields for Moodle 3.11 and higher. Initial
     version of Moodle 3.11 has problems with some other fields created as part of
     this change. Due to extreme health issues for my wife that lead to her death,
     I tabled work on this until 20220313. I have ran tests and it seems to upgrade
     in Moodle 3.11 and work as expected.
 
-=== 3.7.0 ===
-20210430 Skype_312 - Some lines are too long, over 132 characters. Fixed all line
+=== 3.7.0 ===2021042800
+20210430 Skype_312/393v - Some lines are too long, over 132 characters. Fixed all line
     lengths being reported by codechecker.
-20210430 Skype_323 - missing, With Selected (through check boxes): below user list 
-
-
-=== 3.6.0 ===
-20200506 Started work on new Skype v3.6.0.
-20200506 Tracker, Skype_392, Ran codechecker and fixed variables with underscores in them.
-20200506 Tracker, Skype_393, Many lines of code longer than 132 characters. Fixed the 
+20210430 Skype_323/704v - missing, With Selected (through check boxes): below user
+    list. 20210428 There was one problem and a mistake. The js folder was missing
+    because I tried moving its contents to two other files. Currently have deleted
+    the folder and both files. The problem was caused by me breaking up the lines
+    of a script, WITHOUT concatenating them!
+20200506 Skype_393v - Many lines of code longer than 132 characters. Fixed the 
 ones in php. Still working on the others.
-20200506 Tracker, Skype_394, Added a branch check to add deprecated
-update button ONLY in Moodles 3.1 and lower. Otherwise, skip adding it.
-20200514 Completed more code cleanup and documentation.
-20200514 Skype_395 Removed mod_form heading, Custom example fieldset, and
-moved the, Next chat time, setting so that is under the Availability heading.
-20200516 Skype_406 In locallib.php, removed unused line 96, $all_userskype = '';.
-20200516 Completed more code cleanup, mostly fixing line lengths.
-20200516 Skype_407 Started converting oops.html to oops.php and moving all
-the css style entries to a styles.css file.
-20200518 Skype_407 Got oops.php working with bg.png moved to the pix folder,
-but still need to verify that oops.php gets called into action.
-20200520 Push all recent changes to github, with bump to this version.
-=== 3.6.1 ===
+
+=== 3.6.1 ===2021012900
 20210129 Fixed variable name capitalization error in backup_skype_activity_task.class.php file.
+20210205 Skype_667v - user found bugs. See the ticket. Mostly resolved by getting rid
+    of locallib.php and making classes out of each function. 
+20200506 Skype_392v - Some variables have underscores in the names. Ran codechecker
+    and fixed variables with underscores in them.
+20200506 Skype_394v - Added a branch check to add deprecated
+    update button ONLY in Moodles 3.1 and lower. Otherwise, skip adding it.
+20200514 Skype_395v - Removed mod_form heading, Custom example fieldset, and
+    moved the, Next chat time, setting so that is under the Availability heading.
+20200516 Skype_406v - locallib.php line 96, variable $all_userskype, is incorrect
+    and appears to be unused. In locallib.php, removed unused
+    line 96, $all_userskype = '';.
+
+
+=== 3.6.0 ===2020052000
+20200506 Started work on new Skype v3.6.0.
+20200514 Completed more code cleanup and documentation.
+20200516 Completed more code cleanup, mostly fixing line lengths.
+20200516 Skype_407v Started converting oops.html to oops.php and moving all
+    the css style entries to a styles.css file. 20210729 As of this date, I
+    have completely removed the skype_not_found folder. I renamed oops.html
+    to oops.php and moved it into the main skype folder. I moved bg.png into
+    the pix folder.
+20200518 Skype_407v Got oops.php working with bg.png moved to the pix folder,
+    but still need to verify that oops.php gets called into action.
+20200520 Push all recent changes to github, with bump to this version.
+
 
 
 === Notes ===
@@ -123,4 +140,6 @@ maintenance of the plugin, was v2.7 for Moodle 3.0, 3.1. I had
 made changes as needed, and had a 3.4.0, 3.5.0, and 3.5.0+.
 
 Prior to 20200506 I had added groups to Skype 3.5.0/3.5.0+.
+20201105 Skype_649v - request for initiating group call. See the ticket.
+ 
 Prior to 20200506 I had added Calendar events to Skype 3.5.0/3.5.0+.
