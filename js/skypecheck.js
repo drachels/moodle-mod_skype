@@ -61,31 +61,17 @@ if (sUsrAg.indexOf("Firefox") > -1) {
   sBrowser = "unknown";
 }
 
-//alert("You are using: " + sBrowser);
-
-//window.alert("1-1 Made it to the skypeCheck.js file.");
-
 var activex = ((navigator.userAgent.indexOf('Win') != -1) &&
               + (navigator.userAgent.indexOf('MSIE') != -1) &&
               + (parseInt(navigator.appVersion) >= 4));
 //var CantDetect = '';
 var CantDetect = ((navigator.userAgent.indexOf('Safari') != -1) ||
                  + (navigator.userAgent.indexOf('Opera') != -1));
-//window.alert("1-2 Made it to (navigator.userAgent.indexOf('Win') != -1) = " + (navigator.userAgent.indexOf('Win') != -1));
-//window.alert("1-3 Made it to (navigator.userAgent.indexOf('MSIE') != -1) = " + (navigator.userAgent.indexOf('MSIE') != -1));
-//window.alert("1-4 Made it to (parseInt(navigator.appVersion) >= 4) = " + (parseInt(navigator.appVersion) >= 4));
-//window.alert("1-5 Result of all three items, var activex = " + ((navigator.userAgent.indexOf('Win') != -1) && (navigator.userAgent.indexOf('MSIE') != -1) && (parseInt(navigator.appVersion) >= 4)));
-//window.alert("1-6 Made it to (navigator.userAgent.indexOf('Safari') != -1) = " + (navigator.userAgent.indexOf('Safari') != -1));
-//window.alert("1-7 Made it to (navigator.userAgent.indexOf('Opera') != -1) = " + (navigator.userAgent.indexOf('Opera') != -1));
-//window.alert("1-8 Result of all both items, var CantDetect = " + ((navigator.userAgent.indexOf('Safari') != -1) || (navigator.userAgent.indexOf('Opera') != -1)));
-
 var w,
     h,
     oopswindow,
     detected,
     isSkypeInstalled;
-
-//window.alert("2 Made it to the skypeCheck.js file. activex = " + activex + " CantDetect = " + CantDetect);
 
 /**
  * Adds oopsPopup object.
@@ -93,27 +79,13 @@ var w,
  * @returns false
  */
 function oopsPopup() {
-
-    //window.alert("7-1 Before the if and the navigator.language is = " 
-    //            + navigator.language 
-    //            + " navigator.language.indexOf('ja') is = " 
-    //            + navigator.language.indexOf('ja'));
-    //window.alert("2 Still before the if and the navigator.systemLanguage is = " + navigator.systemLanguage + " navigator.systemLanguage.indexOf('ja') is = " + navigator.systemLanguage.indexOf('ja'));
-
     if ((navigator.language && navigator.language.indexOf("ja") != -1) ||
        + (navigator.systemLanguage && navigator.systemLanguage.indexOf("ja") != -1) ||
        + (navigator.userLanguage && navigator.userLanguage.indexOf("ja") != -1)) {
         //var URLtoOpen = "skype_not_found/oops.html";
         var URLtoOpen = "oops.php";
-
-        //window.alert("7-2 In the if part.");
-
     } else {
-        //var URLtoOpen = "skype_not_found/oops.html";
         var URLtoOpen = "oops.php";
-        // Firefox is coming throught this else.
-        //window.alert("7-3 In the else part and the URLtoOpen = " + URLtoOpen);
-
     }
     var windowName = "ELA";
     var popW = 540, popH = 305;
@@ -152,40 +124,22 @@ if (typeof (detected) == "undefined" && activex) {
  * @returns oopsPopup If Skype is not detected.
  */
 function skypeCheck() {
-
-    //window.alert("5-1 Made it to the function skypeCheck, and CantDetect is = " + CantDetect + " !activex = " + !activex);
-
-
     if (CantDetect) {
-        //window.alert("5-2 In the first part of the first if due to CantDetect = " + CantDetect);
         return true;
     } else if (!activex) {
-        //window.alert("5-3 Made it to the elseif due to !activex = " + !activex);
         var skypeMime = navigator.mimeTypes["application/x-skype"];
         detected = true;
-
-        //window.alert("5-4 Still n the elseif due to !activex = " + !activex + " and skypeMime = " + skypeMime);
-
         if (typeof (skypeMime) == "object") {
-        //window.alert("5-5 In the first part of the second if due to typeof (skypeMime) = " + typeof (skypeMime));
-
             return true;
         } else {
-        //window.alert("5-6 In the else part of the second if due to typeof (skypeMime) = " + typeof (skypeMime));
-
             return oopsPopup();
         }
     } else {
-        //window.alert("5-7 In the second else part of the first if checking isSkypeInstalled() = " + isSkypeInstalled());
-
         if (isSkypeInstalled()) {
-        //window.alert("5-8 In the second else part of the first if and skype is installed so setting detected to true.");
-
             detected = true;
             return true;
         }
     }
-
     detected = true;
     return oopsPopup();
 }
@@ -195,9 +149,6 @@ function skypeCheck() {
  *
  */
 function loadDetection() {
-
-    //window.alert("3 Made it to the function loadDetection. ");
-
     if (document.getElementById && document.getElementsByTagName) {
         if (window.addEventListener) {
             window.addEventListener('load', addDetection, false);
@@ -213,9 +164,6 @@ function loadDetection() {
  * @returns skypeCheck
  */
 function addDetection() {
-
-    //window.alert("4 Made it to the function addDetection. ");
-
     var pageLinks = document.getElementsByTagName("a");
     for (var i=0; i < pageLinks.length; i++) {
         if (pageLinks[i].childNodes[0] && pageLinks[i].childNodes[0].src) {
