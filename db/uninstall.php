@@ -29,26 +29,7 @@ defined('MOODLE_INTERNAL') || die; // @codingStandardsIgnoreLine
  */
 function xmldb_skype_uninstall() {
     global $DB, $CFG;
-    /*
-    if (($CFG->branch > 310) && (is_siteadmin())) {
-        // Need to pose a question regarding deleting profile information.
-        // Check to see if skype is in the user_info_field table.
-        $params1 = array(
-            'shortname' => 'skype'
-        );
-        // Get the record if it exists.
-        $temp = $DB->get_record('user_info_field', $params1);
-        if ($temp) {
-            $params2 = array(
-                'fieldid' => $temp->id
-            );
-            // Delete any records that exists that use the profile field.
-            $DB->delete_records('user_info_data', null, $params2);
-            // Delete the Skype ID profile entry.
-            $DB->delete_records('user_info_field', null, $params1);
-        }
-    }
-    */
+
     // Delete all the Skype activity instances.
     $DB->delete_records('skype', null);
     return true;
