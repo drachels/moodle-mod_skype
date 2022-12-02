@@ -20,7 +20,7 @@
  * All the core Moodle functions, neeeded to allow the module to work
  * integrated in Moodle should be placed here.
  * All the skype specific functions, needed to implement all the module
- * logic, should go to locallib.php. This will help to save some memory when
+ * logic, should go to classes files. This will help to save some memory when
  * Moodle is performing actions across all modules.
  *
  * @package   mod_skype
