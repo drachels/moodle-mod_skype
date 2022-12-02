@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg538"
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   sodipodi:docname="monologo.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:export-filename="monologo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs542" />
+  <sodipodi:namedview
+     id="namedview540"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="11.346854"
+     inkscape:cx="-12.558547"
+     inkscape:cy="5.1556141"
+     inkscape:window-width="1399"
+     inkscape:window-height="858"
+     inkscape:window-x="234"
+     inkscape:window-y="196"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g544" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g544">
+    <path
+       style="fill:#000000"
+       id="path675"
+       d="" />
+    <path
+       id="path729"
+       style="fill:none;stroke:#020200;stroke-width:1;stroke-linecap:round;stroke-dasharray:none"
+       d="m 14.335627,8.0754552 c 0,1.5964223 1.271504,3.3237198 1.256061,4.2404288 -0.02482,1.473626 -1.124067,2.659088 -2.749653,2.926231 -1.37456,0.225891 -3.3140561,-0.645028 -4.9399096,-0.645028 -3.5531247,0 -6.4335012,-2.919834 -6.4335013,-6.5216318 0,-1.4655926 -1.63821289,-3.8758327 -0.83312447,-5.581737 C 1.0934836,1.5232944 2.0373698,0.72332093 3.5838982,0.71821973 c 1.2983871,-0.00428 2.7395513,1.09999407 3.7013161,1.09999417 3.5531257,0 7.0504127,2.6554436 7.0504127,6.2572413 z"
+       sodipodi:nodetypes="sssssssss" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:13.5518px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.338795"
+       x="4.6977835"
+       y="12.416571"
+       id="text882"
+       transform="scale(0.94732226,1.055607)"><tspan
+         sodipodi:role="line"
+         id="tspan880"
+         x="4.6977835"
+         y="12.416571"
+         style="stroke-width:0.338795">S</tspan></text>
+  </g>
+</svg>
