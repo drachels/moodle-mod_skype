@@ -50,7 +50,6 @@ if ($id) {
 $context = context_module::instance($cm->id);
 require_login($course, true, $cm);
 
-
 $modulecontext = context_module::instance($cm->id);
 require_capability('mod/skype:view', $modulecontext);
 
