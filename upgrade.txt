@@ -34,7 +34,7 @@ Moodle Versions
 20200506 I assumed maintenance responsibility for this plugin.
 
 
-=== 3.8.5 === pending
+=== 3.8.5 === 20230418
 20230406 Skype_1033 - Invalid event functions defined in \mod_skype\event\course_module_viewed.
     Removed the deprecated function. 
 
