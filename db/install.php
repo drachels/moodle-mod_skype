@@ -61,25 +61,25 @@ function xmldb_skype_install() {
         if (!$DB->get_record('user_info_field', $params)) {
             // If not there, then add it along with other details.
             $params = array(
-                'shortname'         => 'skype',
-                'name'              => 'skype',
-                'datatype'          => 'social',
-                'description'       => 'Individual Skype user name.',
+                'shortname' => 'skype',
+                'name' => 'skype',
+                'datatype' => 'social',
+                'description' => 'Individual Skype user name.',
                 'descriptionformat' => 1,
-                'categoryid'        => $temp->id,
-                'sortorder'         => 1,
-                'required'          => 0,
-                'locked'            => 0,
-                'visible'           => 2,
-                'forceunique'       => 1,
-                'signup'            => 0,
-                'defaultdata'       => '',
+                'categoryid' => $temp->id,
+                'sortorder' => 1,
+                'required' => 0,
+                'locked' => 0,
+                'visible' => 2,
+                'forceunique' => 1,
+                'signup' => 0,
+                'defaultdata' => '',
                 'defaultdataformat' => 0,
-                'param1'            => 30,
-                'param2'            => 50,
-                'param3'            => 0,
-                'param4'            => '',
-                'param5'            => ''
+                'param1' => 30,
+                'param2' => 50,
+                'param3' => 0,
+                'param4' => '',
+                'param5' => ''
             );
             // Write a db record with the params.
             $DB->insert_record('user_info_field', $params);
