@@ -78,9 +78,9 @@ function skype_update_instance($skype) {
         $skype->timeclose = 0;
     }
 
-    $cmid       = $skype->coursemodule;
+    $cmid = $skype->coursemodule;
     $cmidnumber = $skype->cmidnumber;
-    $courseid   = $skype->course;
+    $courseid = $skype->course;
 
     $skype->id = $skype->instance;
 
