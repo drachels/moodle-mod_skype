@@ -35,16 +35,16 @@ Moodle Versions
 
 
 === 3.8.5 === 20230418
-20230406 Skype_1033 - Invalid event functions defined in \mod_skype\event\course_module_viewed.
+20230406 Skype_1033v - Invalid event functions defined in \mod_skype\event\course_module_viewed.
     Removed the deprecated function. 
 
 
 === 3.8.4 ===2022120200
-20220803 Skype_903 - Deleting Skype activity should not delete the users Skype ID
+20220803 Skype_903v - Deleting Skype activity should not delete the users Skype ID
     from the user profile. For now I have just commented out portions of the
     skype/db/uninstall.php file so that only the Skype activities are deleted and
     profiles are not touched.
-20221130 Skype_970 - The skypecheck.js file needs commented out code cleanup. Removed
+20221130 Skype_970v - The skypecheck.js file needs commented out code cleanup. Removed
     unneeded comments and code.
 
 === 3.8.3 ===2022062900
