@@ -103,7 +103,7 @@ function xmldb_skype_upgrade($oldversion) {
 
         // Define index course (not unique) to be added to skype.
         $table = new xmldb_table('skype');
-        $index = new xmldb_index('courseindex', XMLDB_INDEX_NOTUNIQUE, array('course'));
+        $index = new xmldb_index('courseindex', XMLDB_INDEX_NOTUNIQUE, ['course']);
 
         // Add index to course field.
         if (!$dbman->index_exists($table, $index)) {
@@ -139,15 +139,15 @@ function xmldb_skype_upgrade($oldversion) {
 
     if ($CFG->branch > 310 && $oldversion < 2022062900) {
         // Check to see if, Other field, category exists by trying to get a db record containing it.
-        $params = array(
-            'name' => 'Other fields'
-        );
+        $params = [
+            'name' => 'Other fields',
+        ];
         if (!$DB->get_record('user_info_category', $params)) {
             // If, Other fields, not there then in add it.
-            $params = array(
+            $params = [
                 'name' => 'Other fields',
-                'sortorder' => 1
-            );
+                'sortorder' => 1,
+            ];
             $DB->insert_record('user_info_category', $params);
         }
         // Now get the record we just made get the id to use as categoryid.
@@ -156,12 +156,12 @@ function xmldb_skype_upgrade($oldversion) {
         $temp = $DB->get_record('user_info_category', $params);
 
         // Check to see if skype is in the user_info_field table already.
-        $params = array(
-            'shortname' => 'skype'
-        );
+        $params = [
+            'shortname' => 'skype',
+        ];
         if (!$DB->get_record('user_info_field', $params)) {
             // If not there, then add it along with other details.
-            $params = array(
+            $params = [
                 'shortname' => 'skype',
                 'name' => 'skype',
                 'datatype' => 'social',
@@ -180,8 +180,8 @@ function xmldb_skype_upgrade($oldversion) {
                 'param2' => 50,
                 'param3' => 0,
                 'param4' => '',
-                'param5' => ''
-            );
+                'param5' => '',
+            ];
             // Write a db record with the params.
             $DB->insert_record('user_info_field', $params);
         }

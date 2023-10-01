@@ -44,18 +44,23 @@ class backup_skype_activity_structure_step extends backup_activity_structure_ste
         $userinfo = $this->get_setting_value('userinfo');
 
         // Define each element separated.
-        $skype = new backup_nested_element('skype', array('id'),
-                                           array('name',
-                                                 'intro',
-                                                 'chattime',
-                                                 'introformat',
-                                                 'timecreated',
-                                                 'timemodified',
-                                                 'timeopen',
-                                                 'timeclose'));
+        $skype = new backup_nested_element('skype', [
+            'id',
+            ],
+            [
+                'name',
+                'intro',
+                'chattime',
+                'introformat',
+                'timecreated',
+                'timemodified',
+                'timeopen',
+                'timeclose',
+            ]
+        );
 
         // Define sources.
-        $skype->set_source_table('skype', array('id' => backup::VAR_ACTIVITYID));
+        $skype->set_source_table('skype', ['id' => backup::VAR_ACTIVITYID]);
 
         // Return the root element (skype), wrapped into standard activity structure.
         return $this->prepare_activity_structure($skype);

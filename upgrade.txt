@@ -34,6 +34,13 @@ Moodle Versions
 20200506 I assumed maintenance responsibility for this plugin.
 
 
+=== 3.8.6 === Pending
+20231001 Skype_1084 - Latest codechecker says "Import statements must not begin with a leading
+    backslash." Removed all leading backslashes. See ticket for details.
+20231001 Skype_1085 - Latest codechecker requires convert from long array(), to short array [].
+    Changed all arrays to short array form, []. There was a bunch so see ticket for details.
+
+
 === 3.8.5 === 20230418
 20230406 Skype_1033v - Invalid event functions defined in \mod_skype\event\course_module_viewed.
     Removed the deprecated function. 

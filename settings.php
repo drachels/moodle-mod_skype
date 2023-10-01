@@ -28,6 +28,8 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configselect('skype/showrecentactivity', get_string('showrecentactivity', 'skype'),
                                                   get_string('showrecentactivity', 'skype'), 0,
-                                                  array('0' => get_string('no'), '1' => get_string('yes'))));
+                                                  ['0' => get_string('no'),
+                                                   '1' => get_string('yes'),
+                                                  ]));
 
 }

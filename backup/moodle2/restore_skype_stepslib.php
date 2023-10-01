@@ -42,7 +42,7 @@ class restore_skype_activity_structure_step extends restore_activity_structure_s
      */
     protected function define_structure() {
 
-        $paths = array();
+        $paths = [];
         // To know if we are including userinfo.
         $userinfo = $this->get_setting_value('userinfo');
 

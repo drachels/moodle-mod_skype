@@ -53,7 +53,7 @@ class mod_skype_mod_form extends moodleform_mod {
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Adding the standard name field.
-        $mform->addElement('text', 'name', get_string('skypename', 'skype'), array('size' => '64'));
+        $mform->addElement('text', 'name', get_string('skypename', 'skype'), ['size' => '64']);
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
         } else {
@@ -73,10 +73,10 @@ class mod_skype_mod_form extends moodleform_mod {
 
         $mform->addElement('date_time_selector', 'timeopen',
                            get_string('skypeopentime', 'skype'),
-                           array('optional' => true, 'step' => 1));
+                           ['optional' => true, 'step' => 1]);
         $mform->addElement('date_time_selector', 'timeclose',
                            get_string('skypeclosetime', 'skype'),
-                           array('optional' => true, 'step' => 1));
+                           ['optional' => true, 'step' => 1]);
 
         // Add standard elements, common to all modules.
         $this->standard_coursemodule_elements();

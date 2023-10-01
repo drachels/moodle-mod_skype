@@ -163,7 +163,7 @@ class results {
         // Print_user_picture and other details.
         foreach ($skypeusers as $user) {
             // 20210531 Check to see if this user has a Skype ID in the new location
-            $params = array($user->id, "skype");
+            $params = [$user->id, "skype"];
 
             $rec = self::user_skype_id($params);
 
@@ -182,7 +182,7 @@ class results {
 
                 $userlist .= "<tr><td><input type='checkbox' name='userskypeids' value='$rec->data' $disabled></td>";
             }
-            $userlist .= "<td>".$OUTPUT->user_picture($user, array('courseid' => 1))."</td>";
+            $userlist .= "<td>".$OUTPUT->user_picture($user, ['courseid' => 1])."</td>";
             $userlist .= "<td>".fullname($user)."</td>";
             $userlist .= "<td>".$userskypeid."</td>";
             // If the user had a SkypeID, show the four possible buttons for a call.
@@ -233,7 +233,10 @@ class results {
         // The SKYPE_EVENT_TYPE_OPEN event should only be an action event if no close time is specified.
         $event->type = empty($skype->timeclose) ? CALENDAR_EVENT_TYPE_ACTION : CALENDAR_EVENT_TYPE_STANDARD;
         if ($event->id = $DB->get_field('event', 'id',
-            array('modulename' => 'skype', 'instance' => $skype->id, 'eventtype' => $event->eventtype))) {
+            ['modulename' => 'skype',
+             'instance' => $skype->id,
+             'eventtype' => $event->eventtype,
+            ])) {
             if ((!empty($skype->timeopen)) && ($skype->timeopen > 0)) {
                 // Calendar event exists so update it.
                 $event->name = get_string('calendarstart', 'skype', $skype->name);
@@ -274,7 +277,10 @@ class results {
         $event->type = CALENDAR_EVENT_TYPE_ACTION;
         $event->eventtype = SKYPE_EVENT_TYPE_CLOSE;
         if ($event->id = $DB->get_field('event', 'id',
-            array('modulename' => 'skype', 'instance' => $skype->id, 'eventtype' => $event->eventtype))) {
+            ['modulename' => 'skype',
+             'instance' => $skype->id,
+             'eventtype' => $event->eventtype,
+            ])) {
             if ((!empty($skype->timeclose)) && ($skype->timeclose > 0)) {
                 // Calendar event exists so update it.
                 $event->name = get_string('calendarend', 'skype', $skype->name);
@@ -315,7 +321,10 @@ class results {
         $event->eventtype = SKYPE_EVENT_TYPE_CHATTIME;
         $event->type = empty($skype->chattime) ? CALENDAR_EVENT_TYPE_ACTION : CALENDAR_EVENT_TYPE_STANDARD;
         if ($event->id = $DB->get_field('event', 'id',
-            array('modulename' => 'skype', 'instance' => $skype->id, 'eventtype' => $event->eventtype))) {
+            ['modulename' => 'skype',
+             'instance' => $skype->id,
+             'eventtype' => $event->eventtype,
+            ])) {
             if ((!empty($skype->chattime)) && ($skype->chattime > 0)) {
                 // Calendar event exists so update it.
                 $event->name = get_string('calendarchattime', 'skype', $skype->name);

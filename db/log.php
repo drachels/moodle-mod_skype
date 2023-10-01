@@ -31,9 +31,9 @@ defined('MOODLE_INTERNAL') || die();
 
 global $DB;
 
-$logs = array(
-    array('module' => 'skype', 'action' => 'add', 'mtable' => 'skype', 'field' => 'name'),
-    array('module' => 'skype', 'action' => 'update', 'mtable' => 'skype', 'field' => 'name'),
-    array('module' => 'skype', 'action' => 'view', 'mtable' => 'skype', 'field' => 'name'),
-    array('module' => 'skype', 'action' => 'view all', 'mtable' => 'skype', 'field' => 'name')
-);
+$logs = [
+    ['module' => 'skype', 'action' => 'add', 'mtable' => 'skype', 'field' => 'name'],
+    ['module' => 'skype', 'action' => 'update', 'mtable' => 'skype', 'field' => 'name'],
+    ['module' => 'skype', 'action' => 'view', 'mtable' => 'skype', 'field' => 'name'],
+    ['module' => 'skype', 'action' => 'view all', 'mtable' => 'skype', 'field' => 'name'],
+];

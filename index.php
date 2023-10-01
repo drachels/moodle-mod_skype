@@ -28,7 +28,7 @@ require_once(__DIR__ .'/lib.php');
 
 $id = required_param('id', PARAM_INT);   // Course.
 
-if (! $course = $DB->get_record("course", array("id" => $id))) {
+if (! $course = $DB->get_record("course", ["id" => $id])) {
     throw new moodle_exception(get_string('incorrectcourseid', 'skype'));
 }
 
@@ -37,7 +37,7 @@ require_course_login($course);
 // Header.
 $strskypes = get_string("modulenameplural", "skype");
 $PAGE->set_pagelayout('incourse');
-$PAGE->set_url('/mod/skype/index.php', array('id' => $id));
+$PAGE->set_url('/mod/skype/index.php', ['id' => $id]);
 $PAGE->navbar->add($strskypes);
 $PAGE->set_title($strskypes);
 $PAGE->set_heading($course->fullname);
@@ -62,8 +62,8 @@ $timenow = time();
 // Table data.
 $table = new html_table();
 
-$table->head = array();
-$table->align = array();
+$table->head = [];
+$table->align = [];
 if ($usesections) {
     $table->head[] = get_string('sectionname', 'format_'.$course->format);
     $table->align[] = 'center';
@@ -118,9 +118,9 @@ echo "<br />";
 echo html_writer::table($table);
 
 // Trigger course module instance list event.
-$params = array(
-    'context' => context_course::instance($course->id)
-);
+$params = [
+    'context' => context_course::instance($course->id),
+];
 $event = \mod_skype\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
 $event->trigger();

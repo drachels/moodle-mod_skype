@@ -27,7 +27,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use \mod_skype\local\results;
+use mod_skype\local\results;
 
 require_once(__DIR__ .'/../../config.php');
 require_once(__DIR__ .'/lib.php');
@@ -38,11 +38,11 @@ $groupid = optional_param('group', 0, PARAM_INT); // All users.
 
 if ($id) {
     $cm = get_coursemodule_from_id('skype', $id, 0, false, MUST_EXIST);
-    $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $skype = $DB->get_record('skype', array('id' => $cm->instance), '*', MUST_EXIST);
+    $course = $DB->get_record('course', ['id' => $cm->course], '*', MUST_EXIST);
+    $skype = $DB->get_record('skype', ['id' => $cm->instance], '*', MUST_EXIST);
 } else if ($n) {
-    $skype = $DB->get_record('skype', array('id' => $n), '*', MUST_EXIST);
-    $course = $DB->get_record('course', array('id' => $skype->course), '*', MUST_EXIST);
+    $skype = $DB->get_record('skype', ['id' => $n], '*', MUST_EXIST);
+    $course = $DB->get_record('course', ['id' => $skype->course], '*', MUST_EXIST);
     $cm = get_coursemodule_from_instance('skype', $skype->id, $course->id, false, MUST_EXIST);
 } else {
     error('You must specify a course_module ID or an instance ID');
@@ -54,10 +54,11 @@ $modulecontext = context_module::instance($cm->id);
 require_capability('mod/skype:view', $modulecontext);
 
 // Trigger module viewed event.
-$event = \mod_skype\event\course_module_viewed::create(array(
-   'objectid' => $skype->id,
-   'context' => $context
-));
+$event = \mod_skype\event\course_module_viewed::create(
+    ['objectid' => $skype->id,
+     'context' => $context,
+    ]
+);
 $event->add_record_snapshot('course_modules', $cm);
 $event->add_record_snapshot('course', $course);
 $event->add_record_snapshot('skype', $skype);
@@ -70,7 +71,7 @@ $completion->set_module_viewed($cm);
 // Print the page header.
 $skypeoutput = $PAGE->get_renderer('mod_skype');
 
-$PAGE->set_url('/mod/skype/view.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/skype/view.php', ['id' => $cm->i]));
 $PAGE->set_title($skype->name);
 $PAGE->set_heading($course->shortname);
 
@@ -98,7 +99,7 @@ if ((!(results::is_available($skype))) && (!(has_capability('mod/skype:manageent
     echo $OUTPUT->box($skype->intro, 'generalbox boxaligncenter');
 
     // 20210531 Check to see is user has a Skype ID in their profile.
-    $params = array($USER->id, "skype");
+    $params = [$USER->id, "skype"];
     $rec = results::user_skype_id($params);
 
     // 20210531 switch from using $USER->skype to using $rec->data.

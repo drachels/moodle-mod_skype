@@ -30,7 +30,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die(); // @codingStandardsIgnoreLine
-use \mod_skype\local\results;
+use mod_skype\local\results;
 
 /**
  * Given an object containing all the necessary data,
@@ -103,13 +103,13 @@ function skype_update_instance($skype) {
 function skype_delete_instance($id) {
     global $DB;
 
-    if (! $skype = $DB->get_record('skype', array('id' => $id))) {
+    if (! $skype = $DB->get_record('skype', ['id' => $id])) {
         return false;
     }
 
     // Delete any dependent records here.
 
-    $DB->delete_records('skype', array('id' => $skype->id));
+    $DB->delete_records('skype', ['id' => $skype->id]);
 
     return true;
 }
