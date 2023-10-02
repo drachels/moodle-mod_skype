@@ -39,7 +39,9 @@ Moodle Versions
     backslash." Removed all leading backslashes. See ticket for details.
 20231001 Skype_1085 - Latest codechecker requires convert from long array(), to short array [].
     Changed all arrays to short array form, []. There was a bunch so see ticket for details.
-
+20231001 Skype_1086 - Skype does not currently run with the latest "use" and array changes.
+    Dumb mistake in line 74 of view.php file. When making the right bracket, I accidentally
+    erased the letter d for $cm->id, in the line of code. 
 
 === 3.8.5 === 20230418
 20230406 Skype_1033v - Invalid event functions defined in \mod_skype\event\course_module_viewed.

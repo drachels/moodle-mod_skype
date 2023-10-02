@@ -71,7 +71,7 @@ $completion->set_module_viewed($cm);
 // Print the page header.
 $skypeoutput = $PAGE->get_renderer('mod_skype');
 
-$PAGE->set_url('/mod/skype/view.php', ['id' => $cm->i]));
+$PAGE->set_url('/mod/skype/view.php', ['id' => $cm->id]);
 $PAGE->set_title($skype->name);
 $PAGE->set_heading($course->shortname);
 
