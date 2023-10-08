@@ -85,10 +85,9 @@ class restore_skype_activity_task extends restore_activity_task {
     }
 
     /**
-     * Define the restore log rules.
-     *
-     * These will be applied by the {@link restore_logs_processor} when restoring
-     * skype logs. It must return one array of {@link restore_log_rule} objects.
+     * Define the restore log rules that will be applied by the
+     * restore_logs_processor when restoring checklist logs.
+     * It must return one array of restore_log_rule objects.
      *
      * @return array of restore_log_rule
      */
@@ -103,14 +102,13 @@ class restore_skype_activity_task extends restore_activity_task {
     }
 
     /**
-     * Define the restore log rules that will be applied
-     * by the {@link restore_logs_processor} when restoring
-     * course logs. It must return one array
-     * of {@link restore_log_rule} objects.
+     * Define the restore log rules that will be applied by the
+     * restore_logs_processor when restoring course logs. It must
+     * return one array of restore_logs_processor objects.
      *
-     * Note this rules are applied when restoring course logs
-     * by the restore final task, but are defined here at
-     * activity level. All them are rules not linked to any module instance (cmid = 0).
+     * Note this rules are applied when restoring course logs by the
+     * restore final task, but are defined here at activity level.
+     * All are rules not linked to any module instance (cmid = 0).
      *
      * @return array
      */

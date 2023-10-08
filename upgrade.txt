@@ -34,12 +34,12 @@ Moodle Versions
 20200506 I assumed maintenance responsibility for this plugin.
 
 
-=== 3.8.6 === Pending
-20231001 Skype_1084 - Latest codechecker says "Import statements must not begin with a leading
+=== 3.8.6 === 20231008
+20231001 Skype_1084v - Latest codechecker says "Import statements must not begin with a leading
     backslash." Removed all leading backslashes. See ticket for details.
-20231001 Skype_1085 - Latest codechecker requires convert from long array(), to short array [].
+20231001 Skype_1085v - Latest codechecker requires convert from long array(), to short array [].
     Changed all arrays to short array form, []. There was a bunch so see ticket for details.
-20231001 Skype_1086 - Skype does not currently run with the latest "use" and array changes.
+20231001 Skype_1086v - Skype does not currently run with the latest "use" and array changes.
     Dumb mistake in line 74 of view.php file. When making the right bracket, I accidentally
     erased the letter d for $cm->id, in the line of code. 
 
