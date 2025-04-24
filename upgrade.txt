@@ -33,6 +33,9 @@ Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
 
+=== 4.0.0 === 20250424
+20250424 Skype_1376 - Need version bump for Moodle 5.0. Bumped version and pushed to github.
+    Published to Moodle.
 
 === 3.8.6 === 20231008
 20231001 Skype_1084v - Latest codechecker says "Import statements must not begin with a leading
