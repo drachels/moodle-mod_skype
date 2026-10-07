@@ -33,8 +33,12 @@ Moodle Versions
 ===============
 20200506 I assumed maintenance responsibility for this plugin.
 
+=== 4.1.0 === 2026100700
+20261007 Skype_1571r - FEATUREGROUPMEMBERSONLY is deprecated and needs to be removed.
+    2026100701 Removed CASE FEATUREGROUPMEMBERSONLY from the lib.php file.
+
 === 4.0.0 === 20250424
-20250424 Skype_1376 - Need version bump for Moodle 5.0. Bumped version and pushed to github.
+20250424 Skype_1376r - Need version bump for Moodle 5.0. Bumped version and pushed to github.
     Published to Moodle.
 
 === 3.8.6 === 20231008
